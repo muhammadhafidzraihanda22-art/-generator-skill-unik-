@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generator Skill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="kotak-mesin">
+        <h1>Generator Skill Unik</h1>
+
+        <p>
+            Masukkan namamu untuk
+            melihat skill tersembunyimu!
+        </p>
+
+        <input
+            type="text"
+            id="namainput"
+            placeholder="Ketik namamu..."
+        >
+
+        <button onclick="cekskill()">
+            Cek sekarang
+        </button>
+
+        <h2 id="hasilskill"></h2>
+
+        <img
+            id="fotoSkill"
+            src="https://placehold.co/200x200?text=?"
+            width="200"
+        >
+    </div>
+
+    <script>
+        function cekskill() {
+
+            let nama = document.getElementById("namainput").value;
+
+            let daftarskill = [
+                "Auto SC",
+                "Fire",
+                "Ice",
+                "Boom"
+            ];
+
+            let daftargambar = [
+                "https://storage.googleapis.com/cdn.vcgamers.com/news/wp-content/uploads/2026/02/Script-Fish-It-2-1144x644.jpg",
+
+                "https://2.bp.blogspot.com/-Nq7cMrNgMTk/W2REbvdSmQI/AAAAAAAAjD0/mI8ngpZinyMb7J1lQAG-OF470IiAvjimwCLcBGAs/s1600/maxresdefault.jpg",
+
+                "https://aiptcomics.com/wp-content/uploads/2019/04/ice-dragon-1-970.jpg",
+
+                "https://media-origin.kompas.tv/library/image/content_article/article_img/20191203025303.jpg"
+            ];
+
+            if (nama.trim() === "") {
+                document.getElementById("hasilskill").innerText =
+                    "Masukkan namamu terlebih dahulu!";
+                return;
+            }
+
+            let acak = Math.floor(
+                Math.random() * daftarskill.length
+            );
+
+            let skillpilihan = daftarskill[acak];
+            let gambarPilihan = daftargambar[acak];
+
+            document.getElementById("hasilskill").innerText =
+                nama + ", skill unikmu: " + skillpilihan;
+
+            document.getElementById("fotoSkill").src =
+                gambarPilihan;
+        }
+    </script>
+</body>
+</html>
